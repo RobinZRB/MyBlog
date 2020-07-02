@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>关于我</title>
+</head>
+
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(5)"></nav>
+
+    <!--中间内容-->
+    <div class=" m-container m-padding-tb-big">
+        <div class="ui container"><!--表示一个容器-->
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://unsplash.it/800/600?image=1005" th:src="@{/images/吉良吉影.jpg}" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="top ui attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text">张容彬，一个java小白，编程爱好者，老猎魔人</p>
+                        <p class="m-text">没事喜欢编编程，健健身，看看书，去路易斯安那州捅捅人</p>
+                        <p class="m-text">希望结识志趣相投的小伙伴(#^.^#).</p>
+                    </div>
+                    <!--标签-->
+                    <div class="ui attached segment">
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">游戏</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">健身</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">看书</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Java</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Python</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">MYSQL</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Semantic UI</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">SSM</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Origin</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">...</div>
+                    </div>
+                    <!--连接-->
+                    <div class="ui bottom attached segment">
+                        <a href="https://github.com/RobinZRB" target="_blank" class="ui github circular icon button" data-content="https://github.com/RobinZRB" data-position="bottom center"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="498166439" data-position="bottom center"><i class="qq icon"></i></a>
+                        <a href="#" class="ui circular icon button"><i class="steam icon" data-content="magic鱼人" data-position="bottom center"></i></a>
+                    </div>
+                    <div class="ui wechat-qr flowing popup transition hidden">
+                        <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt="" class="ui rounded image" style="width: 120px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部脚本元素-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padding-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid"><!--分成16份-->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechat.png" th:src="@{images/wechat.png}" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: 498166439@qq.com</a>
+                        <a href="#" class="item">QQ: 498166439</a>
+                        <a href="#" class="item">Wechat: robinz1996</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享编程，刷题，思考相关任何内容，希望可以让大家一起WDNMD...</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ 2020 - 2021 RobinZ Designed By RobinZ</p>
+        </div>
+    </footer>
+
+    <th:block th:replace="_fragments :: script"></th:block>
+
+    <script>
+        $('.menu.toggle').click(function() {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.qq').popup({
+            on : 'click'
+        });
+
+        $('.github').popup({
+            on : 'click'
+        });
+
+        $('.steam').popup({
+            on : 'click'
+        });
+
+        $('.wechat').popup({
+            popup : $('.wechat-qr'),
+            on : 'click',
+            position: 'bottom center'
+        });
+    </script>
+</body>
+</html>

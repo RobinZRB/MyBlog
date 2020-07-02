@@ -1,0 +1,4 @@
+2020-07-02 16:45:26.045  INFO 14008 --- [restartedMain] com.robinz.BlogApplication               : Starting BlogApplication on LAPTOP-8TQE1DU5 with PID 14008 (E:\JavaProject\blog\target\classes started by ZRB in E:\JavaProject\blog)
+2020-07-02 16:45:26.052  INFO 14008 --- [restartedMain] com.robinz.BlogApplication               : The following profiles are active: dev
+2020-07-02 16:45:30.187  WARN 14008 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-07-02 16:45:31.084  INFO 14008 --- [restartedMain] com.robinz.BlogApplication               : Started BlogApplication in 5.807 seconds (JVM running for 7.811)

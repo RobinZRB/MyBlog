@@ -1,0 +1,11 @@
+spring:
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    mode: HTML5
+  profiles:
+    active: dev
+
+comment.avatar: /images/avatar.jpg
+server:
+  port: 80
