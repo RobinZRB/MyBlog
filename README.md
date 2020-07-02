@@ -29,3 +29,5 @@ IDEA
 Maven 3.6.2
 JDK 12
 springboot 2.2.5
+
+部署：腾讯云+linux
