@@ -31,3 +31,7 @@ JDK 12
 springboot 2.2.5
 
 部署：腾讯云+linux
+
+blog1.1：
+
+对楼中楼部分做出优化和修改，加入了Redis类（还未用上）。
