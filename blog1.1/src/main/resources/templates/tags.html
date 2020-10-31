@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>标签</title>
+</head>
+
+
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(3)"></nav>
+
+    <!--中间内容-->
+    <div class=" m-container-small m-padding-tb-big">
+        <div class="ui container"><!--表示一个容器-->
+            <!--header-->
+            <div class="ui top attached segment">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <h3 class="ui teal header">标签</h3>
+                    </div>
+                    <div class="right aligned column">
+                        共 <h2 class="ui orange header m-inline-block" th:text="${#arrays.length(tags)}">14</h2> 个
+                    </div>
+                </div>
+            </div>
+            <!--这是标签-->
+            <div class="ui bottom attached segment m-padding-tb-large">
+                <a herf="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'purple'" th:each="tag : ${tags}">
+                    <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
+                </a>
+
+            </div>
+            <!--这是显示内容-->
+            <div class="ui attached segment">
+                <div class="ui padding vertical segment m-padding-tb m-mobile-lr-clear" th:each="blog : ${pageInfo.list}">
+                    <div class="ui mobile reversed stackable grid">
+                        <div class="eleven wide column">
+                            <div class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">自我介绍</a></div>
+                            <p class="m-text" th:text="|${blog.description}......|">我的名字叫吉良吉影，33岁。住在杜王町东北部的别墅区一带，未婚。我在龟友连锁店服务。
+                                每天都要加班到晚上8点才能回家。我不抽烟，酒仅止于浅尝。
+                                晚上11点睡，每天要睡足8个小时。 睡前，我一定喝一杯温牛奶，然后做20分钟的柔软操...</p>
+                            <div class="ui stackable grid">
+                                <div class="eleven wide column">
+                                    <div class="ui mini horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                            <div class="content"><a herf="#" class="header" th:text="${blog.user.nickname}">吉良吉影</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calender icon"></i><span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2020-3-02</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> <span th:text="${blog.views}">2342</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-padding-tiny m-text-thin" th:text="${blog.type.name}">深入了解</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="five wide column">
+                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                <img src="../static/images/avatar.jpg" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
+                            </a>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <a herf="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui basic teal left pointing label m-padded-mini m-text-thin" th:classappend="${tag.id==activeTagId} ? 'purple'" th:each="tag : ${blog.tags}">
+                                    <span th:text="${tag.name}">方法论</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--footer-->
+            <div class="ui bottom attached segment" >
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <div class="item"><a class="ui mini teal basic button" th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
+                    </div>
+                    <div class="right aligned column">
+                        <div class="item"><a class="ui mini teal basic button" th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui segment m-inline-block">
+                <p >当前第<span th:text="${pageInfo.pageNum}"></span>页，总<span th:text="${pageInfo.pages}"></span>页，共<span th:text="${pageInfo.total}"></span>条记录</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部脚本元素-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padding-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid"><!--分成16份-->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechat.png" th:src="@{images/wechat.png}" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: 498166439@qq.com</a>
+                        <a href="#" class="item">QQ: 498166439</a>
+                        <a href="#" class="item">Wechat: robinz1996</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享编程，刷题，思考相关任何内容，希望可以让大家一起WDNMD...</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @ 2020 - 2021 RobinZ Designed By RobinZ</p>
+        </div>
+    </footer>
+
+    <th:block th:replace="_fragments :: script"></th:block>
+
+    <script>
+        $('.menu.toggle').click(function() {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+    </script>
+</body>
+</html>

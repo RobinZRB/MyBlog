@@ -1,0 +1,18 @@
+spring:
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    mode: HTML5
+  profiles:
+    active: dev
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    max-wait: 30000
+    max-active: -1
+    timeout: 3000
+
+comment.avatar: /images/avatar.jpg
+
+server:
+  port: 80
